@@ -1,33 +1,33 @@
-From 1ced078e670cb2cbc8ef1e249d024afb07e2548e Mon Sep 17 00:00:00 2001
-From: Nishidha Panpaliya <npanpa23@in.ibm.com>
-Date: Thu, 4 May 2023 02:10:19 -0400
-Subject: [PATCH] Pin dependecies
+From ae2eb625f7f231e998994dc303b7adf82abf5092 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <archana.shinde2504@gmail.com>
+Date: Wed, 21 Jun 2023 06:58:56 +0000
+Subject: [PATCH] Pin
 
 ---
  recipe/meta.yaml | 10 +++++-----
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/recipe/meta.yaml b/recipe/meta.yaml
-index 3f523ff..5d8fcf2 100644
+index eafb51f..9b32fa9 100644
 --- a/recipe/meta.yaml
 +++ b/recipe/meta.yaml
-@@ -30,25 +30,25 @@ requirements:
+@@ -31,8 +31,8 @@ requirements:
      - python
      - pip
      - cmdstanpy >=1.0.4
--    - cmdstan ==2.29.2
+-    - cmdstan ==2.32.1
 -    - setuptools >=42
 +    - cmdstan ==2.31.0
 +    - setuptools {{ setuptools }}
      - wheel >=0.37.0
+     - importlib_resources
      - tbb-devel
- 
+@@ -40,16 +40,16 @@ requirements:
    run:
      - python
      # Pin the cmdstan version
--    - cmdstan ==2.29.2
+-    - cmdstan ==2.32.1
 +    - cmdstan ==2.31.0
-     # List below comes from Grayskull:
      - cmdstanpy >=1.0.4
 -    - numpy >=1.15.4
 +    - numpy {{ numpy }}
@@ -35,13 +35,13 @@ index 3f523ff..5d8fcf2 100644
      - pandas >=1.0.4
      - lunarcalendar >=0.0.9
      - convertdate >=2.1.2
-     - holidays >=0.14.2
+     - holidays >=0.25.0
      - python-dateutil >=2.8.0
 -    - tqdm >=4.36.1
 +    - tqdm {{ tqdm }}
+     - importlib_resources
  
  test:
-   imports:
 -- 
-2.31.1
+2.34.1
 
