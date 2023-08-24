@@ -29,13 +29,13 @@ imported_envs:
   - ffmpeg-env.yaml        #[s390x]
 
 packages:
-  - feedstock : https://github.com/conda-forge/eigen-feedstock.git
-    git_tag : cf27c74f2a22569ffde4cc53f58b381905c667eb
   - feedstock : https://github.com/conda-forge/datasets-feedstock.git
-    git_tag : fb3f04ae741963e29698b54f75eab4da549db6fb
+    git_tag : 28cdd715a81009b8723a09180408e83d2acfb8b2
     patches:
       - feedstock-patches/datasets/0001-Pin-dependencies.patch
   - feedstock : https://github.com/conda-forge/eigen-feedstock.git
     git_tag : cf27c74f2a22569ffde4cc53f58b381905c667eb
+  - feedstock : https://github.com/conda-forge/tokenizers-feedstock.git
+    git_tag : 026e5a6446124a4635e604de2dc3c1a83e66bc08
   - feedstock : opencv
   - feedstock : cudatoolkit-dev     # [build_type == 'cuda']
