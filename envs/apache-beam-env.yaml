@@ -39,7 +39,6 @@ packages:
   - feedstock : https://github.com/conda-forge/grpcio-feedstock
     git_tag : a99441fbf15d9bafd4370ea1c88c3c54311efdff
     patches :
-#      - feedstock-patches/grpcio/0001-Updated-grpcio-with-opence-changes.patch
        - feedstock-patches/grpcio/0001-Update-to-v1.53.0.patch
   - feedstock : apache-beam
 {% endif %}
