@@ -104,7 +104,7 @@ gmock:
 grpc_cpp:
   - 1.54.*
 grpcio:
-  - 1.54.*
+  - 1.53.*
 harfbuzz:
   - 4.3.*
 # Note: hdf5 version must be compatible with h5py
