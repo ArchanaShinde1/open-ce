@@ -45,8 +45,8 @@ cli11:
 cloudpickle:
   - 2.*
 cmake:
-  - 3.26.*   # [not s390x]
-  - 3.18.*   # [s390x]
+  - 3.26.*  
+#  - 3.18.*   # [s390x]
 contextvars:
   - 2.4
 coverage:
