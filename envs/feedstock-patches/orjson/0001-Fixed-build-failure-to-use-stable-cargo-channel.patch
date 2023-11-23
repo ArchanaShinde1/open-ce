@@ -1,0 +1,28 @@
+From 61044f4c0e0838cbcdc03dc257da574a3d0d99c6 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <archana.shinde2504@gmail.com>
+Date: Wed, 22 Nov 2023 08:00:51 +0000
+Subject: [PATCH] Fixed build failure to use stable cargo-channel
+
+---
+ recipe/build.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/recipe/build.sh b/recipe/build.sh
+index 51806f4..2238dd7 100644
+--- a/recipe/build.sh
++++ b/recipe/build.sh
+@@ -15,9 +15,9 @@ if [ "$c_compiler" = gcc ] ; then
+     export CARGO_TARGET_${rust_env_arch}_LINKER=$CC
+ fi
+ 
+-declare -a _xtra_maturin_args
++#declare -a _xtra_maturin_args
+ #_xtra_maturin_args+=(--cargo-extra-args="-Zfeatures=itarget")
+-_xtra_maturin_args+=(-Zfeatures=itarget)
++#_xtra_maturin_args+=(-Zfeatures=itarget)
+ 
+ if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
+     mkdir -p $SRC_DIR/.cargo
+-- 
+2.40.1
+
