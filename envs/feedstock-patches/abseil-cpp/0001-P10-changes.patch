@@ -1,7 +1,7 @@
-From 9778ebda76b192a23cac2883c54ea27d582f9670 Mon Sep 17 00:00:00 2001
-From: Nishidha Panpaliya <npanpa23@in.ibm.com>
-Date: Wed, 3 May 2023 12:57:23 +0000
-Subject: [PATCH] Fixed abseil-cpp for P10
+From 19d492fb49b98370fa26480e477b906cde19247b Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <archana.shinde2504@gmail.com>
+Date: Thu, 1 Feb 2024 13:29:01 +0000
+Subject: [PATCH] P10 changes
 
 ---
  recipe/build-abseil.sh | 19 +++++++++++++++++++
@@ -9,7 +9,7 @@ Subject: [PATCH] Fixed abseil-cpp for P10
  2 files changed, 27 insertions(+), 3 deletions(-)
 
 diff --git a/recipe/build-abseil.sh b/recipe/build-abseil.sh
-index 041a9c2..e4bc6b5 100644
+index 041a9c2..3ec612c 100644
 --- a/recipe/build-abseil.sh
 +++ b/recipe/build-abseil.sh
 @@ -5,10 +5,29 @@ set -exuo pipefail
@@ -18,14 +18,14 @@ index 041a9c2..e4bc6b5 100644
  
 +if [[ $ppc_arch == "p10" ]]
 +then
-+    if [[ -z "${GCC_11_HOME}" ]];
++    if [[ -z "${GCC_HOME}" ]];
 +    then
-+        echo "Please set GCC_11_HOME to the install path of gcc-toolset-11"
++        echo "Please set GCC_HOME to the install path of gcc-toolset-12"
 +        exit 1
 +    else
-+        export PATH=$GCC_11_HOME/bin:$PATH
-+        export CC=$GCC_11_HOME/bin/gcc
-+        export CXX=$GCC_11_HOME/bin/g++
++        export PATH=$GCC_HOME/bin:$PATH
++        export CC=$GCC_HOME/bin/gcc
++        export CXX=$GCC_HOME/bin/g++
 +        export BAZEL_LINKLIBS=-l%:libstdc++.a
 +        if [[ -z "${CMAKE_ARGS+x}" ]];
 +        then
@@ -43,7 +43,7 @@ index 041a9c2..e4bc6b5 100644
      -DBUILD_SHARED_LIBS=ON \
      -DABSL_PROPAGATE_CXX_STD=ON \
 diff --git a/recipe/meta.yaml b/recipe/meta.yaml
-index 9ae57dc..ad07589 100644
+index 9ae57dc..cc509db 100644
 --- a/recipe/meta.yaml
 +++ b/recipe/meta.yaml
 @@ -41,6 +41,9 @@ source:
@@ -52,7 +52,7 @@ index 9ae57dc..ad07589 100644
    number: 1
 +  script_env:
 +    - CMAKE_ARGS
-+    - GCC_11_HOME
++    - GCC_HOME
  
  outputs:
    # default behaviour is shared; however note that upstream does not support
@@ -61,7 +61,7 @@ index 9ae57dc..ad07589 100644
      build:
        string: cxx{{ cxx_standard }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
 +      script_env:
-+        - GCC_11_HOME             #[ppc_arch == 'p10']
++        - GCC_HOME             #[ppc_arch == 'p10']
        run_exports:
          - libabseil ={{ version }}=cxx{{ cxx_standard }}*
  
@@ -84,5 +84,5 @@ index 9ae57dc..ad07589 100644
          - ninja
          - pkg-config
 -- 
-2.34.1
+2.40.1
 
